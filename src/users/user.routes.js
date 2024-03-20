@@ -1,10 +1,16 @@
 import { check } from "express-validator";
 import {Router} from "express";
 import {validateFields} from "../middlewares/validate-fields.js";
-import { userPost } from "./user.controller.js";
+import { userPut,
+    userPost } from "./user.controller.js";
 import { validateUser,validateEmail } from "../helpers/db-validator.js";
+import {validateRole} from '../middlewares/validate-ROLE.js';
 
 const router = Router();
+
+router.put('/',[validateRole('ADMIN_ROLE','CLIENT_ROLE'),
+    validateFields
+],userPut);
 
 router.post('/',[
     check('user',"The user is required for account").not().isEmpty(),
