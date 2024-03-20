@@ -1,14 +1,22 @@
 import { check } from "express-validator";
 import {Router} from "express";
 import {validateFields} from "../middlewares/validate-fields.js";
-import { userPut,
+import { userDelete
+    ,userPut,
     userPost } from "./user.controller.js";
 import { validateUser,validateEmail } from "../helpers/db-validator.js";
-import { validateUserPut } from "../middlewares/verify-data.js";
+import { validateUserPut,validatePasswordDelete } from "../middlewares/verify-data.js";
 import {validateJWT} from '../middlewares/validate-JWT.js';
 import {verifyRole} from '../middlewares/validate-ROLE.js';
 
 const router = Router();
+
+router.delete('/',[validateJWT,
+    check('password',"The password is required").not().isEmpty(),
+    check('passwordConfirm',"The password is required to confirm").not().isEmpty(),
+    validatePasswordDelete,
+    validateFields
+],userDelete);
 
 router.put('/',[validateJWT,
     verifyRole('ADMIN_ROLE','CLIENT_ROLE'),

@@ -19,6 +19,16 @@ export const userPut =async (req=request,res=response)=>{
     })
 }
 
+export const userDelete = async (req=request, res=response)=>{
+    const userLog = req.user;
+    await User.findByIdAndUpdate(userLog._id,{state:false});
+    const userDelete= await User.findById(userLog._id);
+    res.status(200).json({
+        msg:"You deleted your user successfully",
+        userDelete
+    });
+}
+
 export const userPost = async(req=request,res=response)=>{
     const {user, name,email,password}=req.body;
     const [totalUser]= await Promise.all([

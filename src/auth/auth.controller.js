@@ -21,7 +21,7 @@ export const login = async(req=request,res=response)=>{
         const validatePassword = bcryptjs.compareSync(password,loggedUser.password);
         if(!validatePassword){
             return res.status(400).json({
-                msg:"Incorrect passwords"
+                msg:"Incorrect password"
             });
         }
         const token = await generateJWT(loggedUser.id);
