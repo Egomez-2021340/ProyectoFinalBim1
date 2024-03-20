@@ -5,7 +5,7 @@ import {generateJWT} from "../helpers/generate-JWT.js";
 
 
 export const login = async(req=request,res=response)=>{
-    const {user,password} =req.body;
+    const {email,password} =req.body;
     try {
         const loggedUser = await User.findOne({email:email});
         if(!loggedUser){
