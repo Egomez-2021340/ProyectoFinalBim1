@@ -18,11 +18,11 @@ export const UserSchema = mongoose.Schema({
     },
     role:{
         type:String,
-        required:[true,"The role is required"]
+       default:"CLIENT_ROLE"
     },
     state:{
         type:Boolean,
-        required:[true,"The state is required"]
+        default:true
     }
 });
 
@@ -31,3 +31,5 @@ UserSchema.method.JSON= function(){
     users.uid=_id;
     return users;
 }
+
+export default mongoose.model('User',UserSchema);
