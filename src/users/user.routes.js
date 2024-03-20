@@ -4,11 +4,17 @@ import {validateFields} from "../middlewares/validate-fields.js";
 import { userPut,
     userPost } from "./user.controller.js";
 import { validateUser,validateEmail } from "../helpers/db-validator.js";
-import {validateRole} from '../middlewares/validate-ROLE.js';
+import { validateUserPut } from "../middlewares/verify-data.js";
+import {validateJWT} from '../middlewares/validate-JWT.js';
+import {verifyRole} from '../middlewares/validate-ROLE.js';
 
 const router = Router();
 
-router.put('/',[validateRole('ADMIN_ROLE','CLIENT_ROLE'),
+router.put('/',[validateJWT,
+    verifyRole('ADMIN_ROLE','CLIENT_ROLE'),
+    check('user',"The user is required for account").not().isEmpty(),
+    validateUserPut,
+    check('password',"The password is required for account and must be greater than 4 characters").isLength({min:4}),
     validateFields
 ],userPut);
 

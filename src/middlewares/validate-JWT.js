@@ -10,7 +10,7 @@ export const validateJWT =async (req,res,next)=>{
     }
     try {
         const {uid} =jwt.verify(token,process.env.SECRETORPRIVATEKEY);
-        const user = await User.findOne(uid);
+        const user = await User.findOne({_id:uid});
         if(!user){
             return res.status(400).json({
                 msg:"The user is not found or does not exist in the database"
