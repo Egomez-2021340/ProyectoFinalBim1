@@ -29,3 +29,14 @@ export const productGetById=async(req,res)=>{
         product
     })
 }
+
+export const productSU=async(req,res)=>{
+    const {idProduct}=req.params;
+    const {__v,_id,_state,...productUpdate}=req.body;
+    await Product.findByIdAndUpdate(idProduct,productUpdate);
+    const product= await Product.findById(idProduct)
+    res.status(200).json({
+        msg:"Your product already update",
+        product
+    });
+}

@@ -5,7 +5,8 @@ import {validateJWT} from '../middlewares/validate-JWT.js';
 import {verifyRole} from '../middlewares/validate-ROLE.js';
 import { productPost,
     allProductsGet,
- productGetById} from './product.controller.js';
+ productGetById,
+productSU} from './product.controller.js';
 import { verifyDataProduct } from '../helpers/db-validator.js';
 import { validateIdProduct } from '../middlewares/verify-data.js';
 
@@ -31,10 +32,10 @@ router.get('/:idProduct',[validateJWT,
 
 router.put('/:idProduct',[validateJWT,
     verifyRole('ADMIN_ROLE'),
-    check('name','There must be a name for the product').not().isEmpty(),
-    check('description','Pleas write a description for this product').not().isEmpty(),
+    /*check('name','There must be a name for the product').not().isEmpty(),
+    check('description','Pleas write a description for this product').not().isEmpty(),*/
     check(["stock","price"]).custom(verifyDataProduct),
     validateFields
-],)
+],productSU)
 
 export default router;
