@@ -17,7 +17,7 @@ export const validateEmail = async(email='')=>{
 export const verifyDataProduct= async (...data)=>{
     for (let valor of data) {
         if (valor === 0) {
-            throw new Error('Verifique que stock o precio  no sea 0');
+            throw new Error('Pleas verify is the price or stock are above 0');
         }
     }
 }

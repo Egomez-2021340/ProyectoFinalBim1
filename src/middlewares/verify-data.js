@@ -47,13 +47,13 @@ export const validateIdProduct = async (req,res,next)=>{
         const product = await Product.findOne({_id:idProduct});
         if(!product){
             return res.status(400).json({
-                msg:'El producto no existe'
+                msg:'The product does not exist in the DB'
             });
         }
         next();
     } catch (e) {
         res.status(500).json({
-            msg:"Verifique que el ID del Producto sea de MongoDB, sino contacte al administrador"
+            msg:"Please verify that the Product Identifier is from Mongo, otherwise contact the administrator"
         });
     }
 }

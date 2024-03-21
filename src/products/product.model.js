@@ -3,11 +3,11 @@ import mongoose from 'mongoose';
 const ProductSchema= mongoose.Schema({
     name:{
         type:String,
-        required:[true,'El nombre del producto es obligatorio']
+        required:[true,'The product needs a name to be entered']
     },
     description:{
         type:String,
-        required:[true,'La descripcion para el producto es obligatoria']
+        required:[true,'the product needs a description to enter']
     },
     stock:{
         type:Number,
@@ -23,7 +23,7 @@ const ProductSchema= mongoose.Schema({
     },
     category:{
         type:String,
-        required:[true,'La categoria es obligatoria']
+        required:[true,'Please write a category']
     },
     state:{
         type:Boolean,

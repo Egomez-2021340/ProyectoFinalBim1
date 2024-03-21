@@ -13,10 +13,9 @@ const router = Router();
 
 router.post('/',[validateJWT,
     verifyRole('ADMIN_ROLE'),
-    check('name','Es obligatorio tener un nombre para el producto').not().isEmpty(),
-    check('description','Agregue una descripcion para el producto').not().isEmpty(),
+    check('name','There must be a name for the product').not().isEmpty(),
+    check('description','Pleas write a description for this product').not().isEmpty(),
     check(["stock","price"]).custom(verifyDataProduct),
-    //check('category').custom(),
     validateFields
 ],productPost)
 
@@ -32,8 +31,8 @@ router.get('/:idProduct',[validateJWT,
 
 router.put('/:idProduct',[validateJWT,
     verifyRole('ADMIN_ROLE'),
-    check('name','Es obligatorio tener un nombre para el producto').not().isEmpty(),
-    check('description','Agregue una descripcion para el producto').not().isEmpty(),
+    check('name','There must be a name for the product').not().isEmpty(),
+    check('description','Pleas write a description for this product').not().isEmpty(),
     check(["stock","price"]).custom(verifyDataProduct),
     validateFields
 ],)

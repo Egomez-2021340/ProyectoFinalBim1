@@ -6,7 +6,7 @@ export const productPost =async(req,res)=>{
     const product = new Product({name,description,stock,price,sales,category});
     product.save();
     res.status(200).json({
-        msg:"El producto ha sido registrado con exito",
+        msg:"The product was successfully entered into the database",
         product
     })
 }
