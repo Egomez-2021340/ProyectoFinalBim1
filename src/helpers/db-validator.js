@@ -13,3 +13,11 @@ export const validateEmail = async(email='')=>{
         throw new Error("The email already exists in another user");
     }
 }
+
+export const verifyDataProduct= async (...data)=>{
+    for (let valor of data) {
+        if (valor === 0) {
+            throw new Error('Verifique que stock o precio  no sea 0');
+        }
+    }
+}

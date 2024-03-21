@@ -4,14 +4,16 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import {dbConnection} from './mongo.js';
 import userRoutes from '../src/users/user.routes.js';
-import loginRoutes from '../src/auth/auth.routes.js'
+import loginRoutes from '../src/auth/auth.routes.js';
+import productRoutes from '../src/products/product.routes.js';
 
 class Server{
     constructor(){
         this.app = express();
         this.PORT = process.env.PORT;
         this.userPath= '/ProjectBimestral/v1/user';
-        this.loginPath='/ProjectBimestral/v1/login'
+        this.loginPath='/ProjectBimestral/v1/login';
+        this.productPath = '/ProjectBimestral/v1/product';
         this.middlewares();
         this.connectDB();
         this.routes();
@@ -30,6 +32,7 @@ class Server{
     routes(){
         this.app.use(this.userPath,userRoutes);
         this.app.use(this.loginPath,loginRoutes);
+        this.app.use(this.productPath,productRoutes);
     }
     listen (){
         this.app.listen(this.PORT,()=>{
