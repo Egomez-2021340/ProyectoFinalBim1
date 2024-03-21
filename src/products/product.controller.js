@@ -40,3 +40,18 @@ export const productSU=async(req,res)=>{
         product
     });
 }
+
+export const controlProducts = async (req,res)=>{
+    const [totalProducts, products, totalProductsNotExist, totalProductsOutStock]=await Promise.all([
+        Product.countDocuments({state:true}),
+        Product.find({state:true}),
+        Product.countDocuments({state:false}),
+        Product.find({stock:0})
+    ])
+    res.status(200).json({
+        totalProducts,
+        products,
+        totalProductsNotExist,
+        totalProductsOutStock
+    })
+}
