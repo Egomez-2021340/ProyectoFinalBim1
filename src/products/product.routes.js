@@ -30,4 +30,12 @@ router.get('/:idProduct',[validateJWT,
     validateIdProduct
 ],productGetById)
 
+router.put('/:idProduct',[validateJWT,
+    verifyRole('ADMIN_ROLE'),
+    check('name','Es obligatorio tener un nombre para el producto').not().isEmpty(),
+    check('description','Agregue una descripcion para el producto').not().isEmpty(),
+    check(["stock","price"]).custom(verifyDataProduct),
+    validateFields
+],)
+
 export default router;
