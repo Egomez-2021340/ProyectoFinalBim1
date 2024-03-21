@@ -55,3 +55,14 @@ export const controlProducts = async (req,res)=>{
         totalProductsOutStock
     })
 }
+
+export const productsOutOfStock = async(req,res)=>{
+    const [totalProductsOutStock, productsOutOfStock]= await Promise.all([
+        Product.countDocuments({$and:[{stock:0},{state:true}]}),
+        Product.find({$and:[{stock:0},{state:true}]})
+    ])
+    res.status(200).json({
+        totalProductsOutStock,
+        productsOutOfStock
+    })
+}

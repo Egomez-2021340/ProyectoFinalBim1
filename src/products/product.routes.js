@@ -7,7 +7,8 @@ import { productPost,
     allProductsGet,
  productGetById,
 productSU,
-controlProducts} from './product.controller.js';
+controlProducts,
+productsOutOfStock} from './product.controller.js';
 import { verifyDataProduct } from '../helpers/db-validator.js';
 import { validateIdProduct } from '../middlewares/verify-data.js';
 
@@ -42,5 +43,9 @@ router.put('/:idProduct',[validateJWT,
 router.get('/control/products',[validateJWT,
     verifyRole('ADMIN_ROLE')
 ],controlProducts)
+
+router.get('/control/productOutOfStock',[validateJWT,
+    verifyRole('ADMIN_ROLE')
+],productsOutOfStock)
 
 export default router;
