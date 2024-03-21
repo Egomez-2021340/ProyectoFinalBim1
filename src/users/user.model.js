@@ -26,7 +26,7 @@ export const UserSchema = mongoose.Schema({
     }
 });
 
-UserSchema.method.JSON= function(){
+UserSchema.methods.toJSON= function(){
     const {__v,_id,...users}= this.toObject();
     users.uid=_id;
     return users;
