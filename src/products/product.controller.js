@@ -66,3 +66,10 @@ export const productsOutOfStock = async(req,res)=>{
         productsOutOfStock
     })
 }
+
+export const productMS=async (req,res)=>{
+    const productsMS=await Product.find({state:true}).sort({sales:-1});
+    res.status(200).json({
+        productsMS
+    })
+}
