@@ -10,7 +10,8 @@ productSU,
 controlProducts,
 productsOutOfStock,
 productMS,
-productDelete} from './product.controller.js';
+productDelete,
+productSN} from './product.controller.js';
 import { verifyDataProduct } from '../helpers/db-validator.js';
 import { validateIdProduct } from '../middlewares/verify-data.js';
 
@@ -58,5 +59,9 @@ router.delete('/:idProduct',[validateJWT,
     verifyRole("ADMIN_ROLE"),
     validateIdProduct
 ],productDelete);
+
+router.get('/search/:nameProduct',[validateJWT,
+verifyRole("CLIENT_ROLE")
+],productSN)
 
 export default router;

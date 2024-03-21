@@ -83,3 +83,13 @@ export const productDelete = async (req,res)=>{
         product
     })
 }
+
+export const productSN = async (req,res)=>{
+    const {nameProduct}=req.params;
+    const [products]=await Promise.all([
+        Product.find({name:{$regex:nameProduct,$options:'i'}})
+    ]);
+    res.status(200).json({
+        products
+    });
+}
