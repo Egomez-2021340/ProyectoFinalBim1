@@ -4,8 +4,10 @@ import { validateFields } from '../middlewares/validate-fields.js';
 import {validateJWT} from '../middlewares/validate-JWT.js';
 import {verifyRole} from '../middlewares/validate-ROLE.js';
 import { productPost,
-    allProductsGet } from './product.controller.js';
+    allProductsGet,
+ productGetById} from './product.controller.js';
 import { verifyDataProduct } from '../helpers/db-validator.js';
+import { validateIdProduct } from '../middlewares/verify-data.js';
 
 const router = Router();
 
@@ -22,5 +24,10 @@ router.get('/',[
     validateJWT,
     verifyRole('ADMIN_ROLE')
 ],allProductsGet)
+
+router.get('/:idProduct',[validateJWT,
+    verifyRole('ADMIN_ROLE'),
+    validateIdProduct
+],productGetById)
 
 export default router;

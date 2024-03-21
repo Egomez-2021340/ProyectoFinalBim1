@@ -21,3 +21,11 @@ export const allProductsGet = async(req,res)=>{
         allProducts
     })
 }
+
+export const productGetById=async(req,res)=>{
+    const {idProduct}=req.params;
+    const product = await Product.findById(idProduct);
+    res.status(200).json({
+        product
+    })
+}

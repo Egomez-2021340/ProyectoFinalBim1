@@ -1,6 +1,8 @@
 import { request, response } from 'express';
-import User from '../users/user.model.js';
 import bcrcyptjs from 'bcryptjs';
+import User from '../users/user.model.js';
+import Product from '../products/product.model.js';
+
 export const validateUserPut = async (req, res, next) => {
     const userLog = req.user;
     const { user } = req.body;
@@ -35,5 +37,23 @@ export const validatePasswordDelete = async (req,res,next)=>{
         }else{
             next();
         }
+    }
+}
+
+
+export const validateIdProduct = async (req,res,next)=>{
+    const {idProduct}=req.params;
+    try {
+        const product = await Product.findOne({_id:idProduct});
+        if(!product){
+            return res.status(400).json({
+                msg:'El producto no existe'
+            });
+        }
+        next();
+    } catch (e) {
+        res.status(500).json({
+            msg:"Verifique que el ID del Producto sea de MongoDB, sino contacte al administrador"
+        });
     }
 }
