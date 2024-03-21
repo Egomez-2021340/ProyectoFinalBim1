@@ -73,3 +73,13 @@ export const productMS=async (req,res)=>{
         productsMS
     })
 }
+
+export const productDelete = async (req,res)=>{
+    const {idProduct}=req.params;
+    await Product.findByIdAndUpdate(idProduct,{state:false});
+    const product = await Product.findById(idProduct)
+    res.status(200).json({
+        msg:"The product has been eliminated successfuly",
+        product
+    })
+}

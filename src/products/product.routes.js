@@ -9,7 +9,8 @@ import { productPost,
 productSU,
 controlProducts,
 productsOutOfStock,
-productMS} from './product.controller.js';
+productMS,
+productDelete} from './product.controller.js';
 import { verifyDataProduct } from '../helpers/db-validator.js';
 import { validateIdProduct } from '../middlewares/verify-data.js';
 
@@ -52,5 +53,10 @@ router.get('/control/productOutOfStock',[validateJWT,
 router.get('/control/productMS',[validateJWT,
 verifyRole('ADMIN_ROLE','CLIENT_ROLE')
 ],productMS)
+
+router.delete('/:idProduct',[validateJWT,
+    verifyRole("ADMIN_ROLE"),
+    validateIdProduct
+],productDelete);
 
 export default router;
