@@ -17,3 +17,14 @@ export const categoryGet = async(req=request,res=response)=>{
         categories
     })
 }
+
+export const categoryPut = async(req=request,res=response)=>{
+    const {idCategory}=req.params;
+    const {__v,_id,state,...otros}=req.body;
+    await Category.findByIdAndUpdate(idCategory,otros);
+    const category = await Category.findById(idCategory);
+    res.status(200).json({
+        msg:"La categorya ha sido actualizada",
+        category
+    });
+}

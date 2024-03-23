@@ -2,6 +2,7 @@ import { request, response } from 'express';
 import bcrcyptjs from 'bcryptjs';
 import User from '../users/user.model.js';
 import Product from '../products/product.model.js';
+import Category from '../categories/category.model.js';
 
 export const validateUserPut = async (req, res, next) => {
     const userLog = req.user;
@@ -55,5 +56,32 @@ export const validateIdProduct = async (req,res,next)=>{
         res.status(500).json({
             msg:"Please verify that the Product Identifier is from Mongo, otherwise contact the administrator"
         });
+    }
+}
+
+export const validateIdCategory = async (req=request,res=response,next)=>{
+    const {idCategory}=req.params;
+    if(idCategory=='65fe5c822e844982b04f7186'){
+        return res.status(400).json({
+            msg:"La categoria nose puede actualizar o eliminar."
+        })
+    }
+    try {
+        const category = await Category.findById(idCategory);
+        if(!category){
+            return res.status(400).json({
+                msg:"La categoria no existe"
+            })
+        }
+        if(!category.state){
+            return res.status(400).json({
+                msg:"La categoria ha sido eliminada"
+            })
+        }
+        next();
+    } catch (e) {
+        res.status(500).json({
+            msg:"Verifique el que el ID sea valido de Mongo"
+        })
     }
 }
