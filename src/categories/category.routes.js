@@ -5,7 +5,8 @@ import { verifyRole } from '../middlewares/validate-ROLE.js';
 import { validateFields } from '../middlewares/validate-fields.js';
 import { categoryPost,
 categoryGet,
-categoryPut} from './category.controller.js';
+categoryPut,
+categoryDelete} from './category.controller.js';
 import { verifyNameCategory } from '../helpers/db-validator.js';
 import { validateIdCategory } from '../middlewares/verify-data.js';
 
@@ -31,5 +32,10 @@ router.put('/:idCategory',[validateJWT,
     check('description',"La descripcion de la categoria es obligatoria").not().isEmpty(),
     validateFields
 ],categoryPut)
+
+router.delete('/:idCategory',[validateJWT,
+    verifyRole('ADMIN_ROLE'),
+    validateIdCategory
+],categoryDelete)
 
 export default router;

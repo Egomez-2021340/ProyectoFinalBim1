@@ -28,3 +28,13 @@ export const categoryPut = async(req=request,res=response)=>{
         category
     });
 }
+
+export const categoryDelete = async(req=request,res=response)=>{
+    const {idCategory}=req.params;
+    await Category.findByIdAndUpdate(idCategory,{state:false});
+    const category = await Category.findById(idCategory);
+    res.status(200).json({
+        msg:"La categorya se ha eliminado",
+        category
+    });
+}
