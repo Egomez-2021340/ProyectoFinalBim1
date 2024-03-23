@@ -75,7 +75,7 @@ export const validateIdCategory = async (req=request,res=response,next)=>{
         }
         if(!category.state){
             return res.status(400).json({
-                msg:"La categoria ha sido eliminada"
+                msg:"La categoria ya esta eliminada"
             })
         }
         next();
