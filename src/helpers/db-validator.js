@@ -1,4 +1,5 @@
 import User from '../users/user.model.js';
+import Category from '../categories/category.model.js';
 
 export const validateUser = async(user='')=>{
     const seeUser = await User.findOne({user:user});
@@ -19,5 +20,12 @@ export const verifyDataProduct= async (...data)=>{
         if (valor === 0) {
             throw new Error('Pleas verify is the price or stock are above 0');
         }
+    }
+}
+
+export const verifyNameCategory=async(name="")=>{
+    const category= await Category.findOne({name:name});
+    if(category){
+        throw new Error('La categoria ya esta registrada');
     }
 }
