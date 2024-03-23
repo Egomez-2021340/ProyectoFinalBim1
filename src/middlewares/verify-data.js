@@ -85,3 +85,14 @@ export const validateIdCategory = async (req=request,res=response,next)=>{
         })
     }
 }
+
+export const validateCategoryProducts = async(req=request,res=response,next)=>{
+    const {idCategory}=req.params;
+    const [productsWithCategory]= await Promise.all([
+        Product.find({category:idCategory}
+    )]);
+    for(let category of productsWithCategory){
+        await Product.findByIdAndUpdate(category._id,{category:'65fe5c822e844982b04f7186'});
+    }
+    next()
+}

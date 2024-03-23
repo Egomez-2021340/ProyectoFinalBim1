@@ -8,7 +8,7 @@ categoryGet,
 categoryPut,
 categoryDelete} from './category.controller.js';
 import { verifyNameCategory } from '../helpers/db-validator.js';
-import { validateIdCategory } from '../middlewares/verify-data.js';
+import { validateCategoryProducts, validateIdCategory } from '../middlewares/verify-data.js';
 
 const router = Router();
 
@@ -35,6 +35,7 @@ router.put('/:idCategory',[validateJWT,
 
 router.delete('/:idCategory',[validateJWT,
     verifyRole('ADMIN_ROLE'),
+    validateCategoryProducts,
     validateIdCategory
 ],categoryDelete)
 

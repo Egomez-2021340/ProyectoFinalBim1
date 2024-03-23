@@ -34,7 +34,7 @@ export const categoryDelete = async(req=request,res=response)=>{
     await Category.findByIdAndUpdate(idCategory,{state:false});
     const category = await Category.findById(idCategory);
     res.status(200).json({
-        msg:"La categorya se ha eliminado",
+        msg:"La categoria se ha eliminado",
         category
     });
 }
