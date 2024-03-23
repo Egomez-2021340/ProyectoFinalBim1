@@ -63,25 +63,25 @@ export const validateIdCategory = async (req=request,res=response,next)=>{
     const {idCategory}=req.params;
     if(idCategory=='65fe5c822e844982b04f7186'){
         return res.status(400).json({
-            msg:"La categoria nose puede actualizar o eliminar."
+            msg:"Category cannot be updated or deleted"
         })
     }
     try {
         const category = await Category.findById(idCategory);
         if(!category){
             return res.status(400).json({
-                msg:"La categoria no existe"
+                msg:"The category do not exist"
             })
         }
         if(!category.state){
             return res.status(400).json({
-                msg:"La categoria ya esta eliminada"
+                msg:"The category is already deleted"
             })
         }
         next();
     } catch (e) {
         res.status(500).json({
-            msg:"Verifique el que el ID sea valido de Mongo"
+            msg:"Verify that the ID is valid from Mongo"
         })
     }
 }

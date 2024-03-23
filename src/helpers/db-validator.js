@@ -26,6 +26,6 @@ export const verifyDataProduct= async (...data)=>{
 export const verifyNameCategory=async(name="")=>{
     const category= await Category.findOne({name:name});
     if(category){
-        throw new Error('La categoria ya esta registrada');
+        throw new Error('The category is already registered');
     }
 }
