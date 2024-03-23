@@ -7,7 +7,7 @@ export const verifyRole=(...role)=>{
         }
         if(!role.includes(req.user.role)){
             return res.status(401).json({
-                msg:`Unauthorized user, has a role ${req.user.role}, authorized roles are ${roles}`
+                msg:`Unauthorized user, has a role ${req.user.role}, authorized roles are ${role}`
             });
         }
         next();
