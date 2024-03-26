@@ -4,7 +4,7 @@ import { validateJWT } from '../middlewares/validate-JWT.js';
 import { verifyRole } from '../middlewares/validate-ROLE.js';
 import { validateFields } from '../middlewares/validate-fields.js'; 
 import { shoppingPost } from "./shoppingCart.controller.js";
-import { verifyExistsProduct, verifyQuantityProduct } from "../middlewares/verify-data.js";
+import { verifyExistsProduct, verifyQuantityProduct, verifyQuantityStock } from "../middlewares/verify-data.js";
 
 const router = Router();
 
@@ -15,6 +15,7 @@ router.post('/',[validateJWT,
     verifyExistsProduct,
     check("quantity","La cantidad de producto a comprar es obligatoria").isNumeric(),
     verifyQuantityProduct,
+    verifyQuantityStock,
     validateFields
 ],shoppingPost);
 
