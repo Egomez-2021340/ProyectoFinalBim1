@@ -1,5 +1,6 @@
 import { request, response } from "express";
 import Product from './product.model.js';
+import Category from "../categories/category.model.js";
 
 export const productPost =async(req,res)=>{
     const {name,description,stock,price,sales,category}=req.body;
@@ -89,6 +90,26 @@ export const productSN = async (req,res)=>{
     const [products]=await Promise.all([
         Product.find({name:{$regex:nameProduct,$options:'i'}})
     ]);
+    res.status(200).json({
+        products
+    });
+}
+
+export const productSC= async(req=request,res=response)=>{
+    const {searchPS} =req.params;
+    let products;
+    let category;
+    category = await Category.findOne({name:searchPS});
+    if(!category){
+        try {
+            category=await Category.findById(searchPS);
+        } catch (e) {
+            res.status(500).json({
+                msg:"Error del servidor"
+            })
+        }
+    }
+    products= await Product.find({category:category._id})
     res.status(200).json({
         products
     });

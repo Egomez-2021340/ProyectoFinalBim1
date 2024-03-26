@@ -11,9 +11,11 @@ controlProducts,
 productsOutOfStock,
 productMS,
 productDelete,
-productSN} from './product.controller.js';
+productSN,
+productSC} from './product.controller.js';
+
 import { verifyDataProduct } from '../helpers/db-validator.js';
-import { validateIdProduct } from '../middlewares/verify-data.js';
+import { validateIdProduct, verifyExistsCategory } from '../middlewares/verify-data.js';
 
 const router = Router();
 
@@ -61,7 +63,13 @@ router.delete('/:idProduct',[validateJWT,
 ],productDelete);
 
 router.get('/search/:nameProduct',[validateJWT,
-verifyRole("CLIENT_ROLE")
+    verifyRole("CLIENT_ROLE")
 ],productSN)
+
+router.get('/search/category/:searchPS',[
+    validateJWT,
+    verifyRole('CLIENT_ROLE'),
+    verifyExistsCategory
+],productSC)
 
 export default router;
