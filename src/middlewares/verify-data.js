@@ -4,6 +4,7 @@ import User from '../users/user.model.js';
 import Product from '../products/product.model.js';
 import Category from '../categories/category.model.js';
 import ShoppingCart from '../shoppingCart/shoppingCart.model.js';
+import Invoice from '../invoices/invoice.model.js';
 
 export const validateUserPut = async (req, res, next) => {
     const userLog = req.user;
@@ -184,4 +185,22 @@ export const verifyIdUser= async(req,res,next)=>{
             msg:"Ingrese un ID de usuario valido de Mongo"
         })
     }
+}
+
+export const verifyIdInvoice = async(req,res,next)=>{
+    const {idInvoice}=req.params;
+    try {
+        const invoice = await Invoice.findById(idInvoice);
+        if(!invoice){
+            return res.status(400).json({
+                msg:"La factura no existe"
+            })
+        }
+        next()
+    } catch (e) {
+        res.status(500).json({
+            msg:"Verifique que el ID de la factura sea valida de Mongo"
+        })
+    }
+    
 }

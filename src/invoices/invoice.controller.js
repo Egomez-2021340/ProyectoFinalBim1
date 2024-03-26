@@ -25,6 +25,14 @@ export const invoicePost = async(req=request,res=response)=>{
     })
 }
 
+export const invoiceGetById= async(req,res)=>{
+    const {idInvoice}=req.params;
+    const invoice = await Invoice.findById(idInvoice);
+    res.status(200).json({
+        invoice
+    })
+}
+
 export const invoiceGetIdUser= async(req,res)=>{
     const {idUser}=req.params;
     const invoices=await Invoice.find({idUser:idUser});
