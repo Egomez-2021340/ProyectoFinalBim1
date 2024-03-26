@@ -163,3 +163,25 @@ export const verifyPayCart = async(req,res,next)=>{
     }
     next();
 }
+
+export const verifyIdUser= async(req,res,next)=>{
+    const {idUser}=req.params;
+    try {
+        const user = await User.findById(idUser);
+        if(!user){
+            return res.status(400).json({
+                msg:"El usuario no existe"
+            })
+        }
+        if(!user.state){
+            return res.status(400).json({
+                msg:"El usuario ha sido eliminado"
+            })
+        }
+        next();
+    } catch (e) {
+        res.status(500).json({
+            msg:"Ingrese un ID de usuario valido de Mongo"
+        })
+    }
+}

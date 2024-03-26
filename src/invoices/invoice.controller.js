@@ -24,3 +24,11 @@ export const invoicePost = async(req=request,res=response)=>{
         invoice
     })
 }
+
+export const invoiceGetIdUser= async(req,res)=>{
+    const {idUser}=req.params;
+    const invoices=await Invoice.find({idUser:idUser});
+    res.status(200).json({
+        invoices
+    })
+}
