@@ -8,6 +8,7 @@ import loginRoutes from '../src/auth/auth.routes.js';
 import productRoutes from '../src/products/product.routes.js';
 import categoryRoutes from '../src/categories/category.routes.js';
 import cartRoutes from '../src/shoppingCart/shoppingCart.routes.js';
+import invoiceRoutes from '../src/invoices/invoice.routes.js';
 class Server{
     constructor(){
         this.app = express();
@@ -16,7 +17,8 @@ class Server{
         this.loginPath='/ProjectBimestral/v1/login';
         this.productPath = '/ProjectBimestral/v1/product';
         this.categoryPath = '/ProjectBimestral/v1/category';
-        this.cartPath = '/ProjectBimestral/v1/shoppingCart'
+        this.cartPath = '/ProjectBimestral/v1/shoppingCart';
+        this.invoicePath = '/ProjectBimestral/v1/invoice';
         this.middlewares();
         this.connectDB();
         this.routes();
@@ -38,6 +40,7 @@ class Server{
         this.app.use(this.productPath,productRoutes);
         this.app.use(this.categoryPath, categoryRoutes);
         this.app.use(this.cartPath,cartRoutes);
+        this.app.use(this.invoicePath,invoiceRoutes);
     }
     listen (){
         this.app.listen(this.PORT,()=>{
