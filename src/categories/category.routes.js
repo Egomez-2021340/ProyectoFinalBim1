@@ -21,8 +21,7 @@ router.post('/',[validateJWT,
 ],categoryPost)
 
 router.get('/',[validateJWT,
-verifyRole('ADMIN_ROLE',
-),categoryGet])
+verifyRole('ADMIN_ROLE','CLIENT_ROLE')],categoryGet)
 
 router.put('/:idCategory',[validateJWT,
     verifyRole('ADMIN_ROLE'),
