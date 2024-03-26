@@ -19,4 +19,5 @@ ShoppingCartSchema.methods.toJSON=function(){
     shoppingCart.uid=_id;
     return shoppingCart;
 }
+
 export default mongoose.model('ShoppingCart',ShoppingCartSchema);

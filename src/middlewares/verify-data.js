@@ -118,3 +118,31 @@ export const verifyExistsCategory = async (req, res, next) => {
         next();
     }
 }
+
+export const verifyExistsProduct =async(req,res,next)=>{
+    const {idProduct}=req.body;
+    try {
+        const product = await Product.findById(idProduct);
+        if(!product){
+            return res.status(400).json({
+                msg:'El producto no existe en la base de datos'
+            })
+        }
+        next();
+    } catch (e) {
+        res.status(500).json({
+            msg: "Verifique que el ID del producto sea valido de Mongo"
+        })
+    }
+}
+
+export const verifyQuantityProduct = async(req,res,next)=>{
+    const {idProduct,quantity}=req.body;
+    const product = await Product.findById(idProduct);
+    if(product.stock<quantity){
+        return res.status(400).json({
+            msg:"La cantidad a comprar sobrepasa al stock del producto"
+        });
+    }
+    next();
+}
