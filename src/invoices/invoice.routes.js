@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import { check } from "express-validator";
-import { invoiceGetById, invoiceGetIdUser, invoicePost } from './invoice.controller.js';
+import { invoiceGetById, invoiceGetIdUser, invoiceGetLoggedUser, invoicePost } from './invoice.controller.js';
 import { validateJWT } from '../middlewares/validate-JWT.js';
 import { verifyRole } from '../middlewares/validate-ROLE.js';
 import { verifyIdInvoice, verifyIdUser, verifyPayCart } from '../middlewares/verify-data.js';
@@ -23,5 +23,9 @@ router.get('/:idInvoice',[validateJWT,
     verifyRole('ADMIN_ROLE'),
     verifyIdInvoice
 ],invoiceGetById)
+
+router.get('/',[validateJWT,
+    verifyRole("CLIENT_ROLE")
+],invoiceGetLoggedUser);
 
 export default router;

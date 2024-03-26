@@ -40,3 +40,11 @@ export const invoiceGetIdUser= async(req,res)=>{
         invoices
     })
 }
+
+export const invoiceGetLoggedUser= async(req,res)=>{
+    const user=req.user;
+    const invoices = await Invoice.find({idUser:user.id});
+    res.status(200).json({
+        invoices
+    })
+}
