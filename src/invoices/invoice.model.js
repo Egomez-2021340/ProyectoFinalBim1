@@ -24,10 +24,6 @@ const InvoiceSchema = mongoose.Schema({
         type:Number,
         default:0
     },
-    total:{
-        type:Number,
-        default:0
-    },
     created_at:{
         type:Date,
         default:Date.now

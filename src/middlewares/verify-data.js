@@ -3,6 +3,7 @@ import bcrcyptjs from 'bcryptjs';
 import User from '../users/user.model.js';
 import Product from '../products/product.model.js';
 import Category from '../categories/category.model.js';
+import ShoppingCart from '../shoppingCart/shoppingCart.model.js';
 
 export const validateUserPut = async (req, res, next) => {
     const userLog = req.user;
@@ -143,6 +144,22 @@ export const verifyQuantityProduct = async(req,res,next)=>{
         return res.status(400).json({
             msg:"La cantidad a comprar sobrepasa al stock del producto"
         });
+    }
+    next();
+}
+
+export const verifyPayCart = async(req,res,next)=>{
+    const userLog=req.user;
+    const {pay} = req.body;
+    const shoppingCart = await ShoppingCart.findOne({idUser:userLog.id});
+    let totalPay=0;
+    for(let producto of shoppingCart.listProducts){
+        totalPay+= producto.subTotal;
+    }
+    if(pay<totalPay){
+        return res.status(400).json({
+            msg:`El pago es insuficiente para obtener los productos, debe pagar Q${totalPay}`
+        })
     }
     next();
 }

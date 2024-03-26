@@ -11,6 +11,7 @@ export const shoppingPost= async(req=request,res=response)=>{
         shoppingCart2.save();
         shoppingCart = await ShoppingCart.findOne({idUser:userLog.id});
     }
+    shoppingCart = await ShoppingCart.findOne({idUser:userLog.id});
     let list=shoppingCart.listProducts;
     const product = await Product.findById(idProduct);
     list.push({idProduct:product.id,
