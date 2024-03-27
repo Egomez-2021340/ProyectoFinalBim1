@@ -214,13 +214,50 @@ export const verifyQuantityStock = async (req, res, next) => {
         for (let p of shoppingCart.listProducts) {
             if (p.idProduct == idProduct) {
                 let itemTotalProduct = quantity + p.quantity;
-                if(itemTotalProduct>product.stock){
+                if (itemTotalProduct > product.stock) {
                     return res.status(400).json({
-                        msg:"La cantidad agregada y la que tiene en el carrito es mayor al stock"
+                        msg: "La cantidad agregada y la que tiene en el carrito es mayor al stock"
                     });
                 }
             }
         }
     }
     next();
+}
+
+export const verifyQuantityStockInvoice = async (req, res, next) => {
+    const { idInvoice } = req.params;
+    const { idProduct, quantity } = req.body;
+    let invoice = await Invoice.findById(idInvoice);
+    const product = await Product.findById(idProduct);
+    for (let p of invoice.totalProducts) {
+        if (p.idProduct == idProduct) {
+            let itemTotalProduct = quantity + p.quantity;
+            if (itemTotalProduct > product.stock) {
+                return res.status(400).json({
+                    msg: "La nueva cantidad es mayor al stock del producto"
+                });
+            }
+        }
+    }
+    next();
+}
+
+export const verifyIdProductInvoice = async (req, res, next) => {
+    const { idInvoice } = req.params;
+    const { idProduct } = req.body;
+    let invoice = await Invoice.findById(idInvoice);
+    let notExistId = 0;
+    for (let p of invoice.totalProducts) {
+        if (p.idProduct != idProduct) {
+            notExistId++;
+        }else{
+            next();
+        }
+    }
+    if (notExistId == invoice.totalProducts.length) {
+        return res.status(400).json({
+            msg: "El ID del producto no existe en la factura"
+        })
+    }
 }
