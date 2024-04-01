@@ -11,7 +11,7 @@ const router = Router();
 router.post('/',[
     validateJWT,
     verifyRole('CLIENT_ROLE'),
-    check("pay","Es necesario pagar por los productos").not().isEmpty(),
+    check("pay","It is necessary to pay for the products").not().isEmpty(),
     verifyPayCart,
     validateFields
 ],invoicePost);
@@ -34,11 +34,11 @@ router.put('/:idInvoice',[
     validateJWT,
     verifyRole('ADMIN_ROLE'),
     verifyIdInvoice,
-    check("idProduct",'Ingrese un ID valido de Mongo').isMongoId(),
+    check("idProduct",'Enter a valid Mongo ID').isMongoId(),
     verifyExistsProduct,
-    check("idProduct","El ID del producto a comprar es obligatorio").not().isEmpty(),
+    check("idProduct","The ID of the product to be purchased is necesary").not().isEmpty(),
     verifyIdProductInvoice,
-    check("quantity","La cantidad de producto a comprar es obligatoria").isNumeric(),
+    check("quantity","The quantity of product to purchase is necesary").isNumeric(),
     verifyQuantityProduct,
     validateFields
 ],invoicePut)

@@ -35,7 +35,7 @@ export const shoppingPost = async (req = request, res = response) => {
     await ShoppingCart.findByIdAndUpdate(shoppingCart.id,{listProducts:list});
     shoppingCart = await ShoppingCart.findById(shoppingCart.id);
     res.status(200).json({
-        msg: "Se ha agregado el producto al carrito",
+        msg: "Has been added to the cart",
         shoppingCart
     });
 }

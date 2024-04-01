@@ -6,7 +6,7 @@ export const categoryPost = async(req=request,res=response)=>{
     const category = new Category({name,description});
     category.save();
     res.status(200).json({
-        msg:"Se ha registrado la categoria",
+        msg:"The category has been registered",
         category
     })
 }
@@ -24,7 +24,7 @@ export const categoryPut = async(req=request,res=response)=>{
     await Category.findByIdAndUpdate(idCategory,otros);
     const category = await Category.findById(idCategory);
     res.status(200).json({
-        msg:"La categorya ha sido actualizada",
+        msg:"The category has been updated",
         category
     });
 }
@@ -34,7 +34,7 @@ export const categoryDelete = async(req=request,res=response)=>{
     await Category.findByIdAndUpdate(idCategory,{state:false});
     const category = await Category.findById(idCategory);
     res.status(200).json({
-        msg:"La categoria se ha eliminado",
+        msg:"The category has been deleted",
         category
     });
 }

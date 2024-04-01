@@ -10,10 +10,10 @@ const router = Router();
 
 router.post('/',[validateJWT,
     verifyRole("CLIENT_ROLE"),
-    check("idProduct",'Ingrese un ID valido de Mongo').isMongoId(),
-    check("idProduct","El ID del producto a comprar es obligatorio").not().isEmpty(),
+    check("idProduct",'Enter a valid Mongo ID').isMongoId(),
+    check("idProduct","The ID of the product to be purchased is necesary").not().isEmpty(),
     verifyExistsProduct,
-    check("quantity","La cantidad de producto a comprar es obligatoria").isNumeric(),
+    check("quantity","The quantity of product to purchase is mandatory").isNumeric(),
     verifyQuantityProduct,
     verifyQuantityStock,
     validateFields

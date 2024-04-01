@@ -6,7 +6,7 @@ const InvoiceSchema = mongoose.Schema({
     },
     name:{
         type:String,
-        required:[true,"El nombre es obligatorio"],
+        required:[true,"The name is necesary"],
     },
     totalProducts:{
         type:Array,

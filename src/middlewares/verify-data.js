@@ -65,25 +65,25 @@ export const validateIdCategory = async (req = request, res = response, next) =>
     const { idCategory } = req.params;
     if (idCategory == '65fe5c822e844982b04f7186') {
         return res.status(400).json({
-            msg: "La categoria nose puede actualizar o eliminar."
+            msg: "The category can't be updated or deleted"
         })
     }
     try {
         const category = await Category.findById(idCategory);
         if (!category) {
             return res.status(400).json({
-                msg: "La categoria no existe"
+                msg: "This category does not exists"
             })
         }
         if (!category.state) {
             return res.status(400).json({
-                msg: "La categoria ya esta eliminada"
+                msg: "The category is eliminated"
             })
         }
         next();
     } catch (e) {
         res.status(500).json({
-            msg: "Verifique el que el ID sea valido de Mongo"
+            msg: "Verify that the ID is valid from Mongo"
         })
     }
 }
@@ -107,13 +107,13 @@ export const verifyExistsCategory = async (req, res, next) => {
             const categoryId = await Category.findById(searchPS);
             if (!categoryId) {
                 return res.status(400).json({
-                    msg: "La categoria no existe"
+                    msg: "The category does not exist"
                 })
             }
             next()
         } catch (e) {
             res.status(400).json({
-                msg: "Ingrese un ID de categoria valido"
+                msg: "Enter a valid category ID"
             })
         }
     } else {
@@ -127,13 +127,13 @@ export const verifyExistsProduct = async (req, res, next) => {
         const product = await Product.findById(idProduct);
         if (!product) {
             return res.status(400).json({
-                msg: 'El producto no existe en la base de datos'
+                msg: 'The product does not exist in the database'
             })
         }
         next();
     } catch (e) {
         res.status(500).json({
-            msg: "Verifique que el ID del producto sea valido de Mongo"
+            msg: "Verify that the product ID is valid from Mongo"
         })
     }
 }
@@ -143,7 +143,7 @@ export const verifyQuantityProduct = async (req, res, next) => {
     const product = await Product.findById(idProduct);
     if (product.stock < quantity) {
         return res.status(400).json({
-            msg: "La cantidad a comprar sobrepasa al stock del producto"
+            msg: "The quantity to be purchased exceeds the stock of the product"
         });
     }
     next();
@@ -159,7 +159,7 @@ export const verifyPayCart = async (req, res, next) => {
     }
     if (pay < totalPay) {
         return res.status(400).json({
-            msg: `El pago es insuficiente para obtener los productos, debe pagar Q${totalPay}`
+            msg: `The payment is insufficient to get the products, you have to pay Q${totalPay}`
         })
     }
     next();
@@ -171,18 +171,18 @@ export const verifyIdUser = async (req, res, next) => {
         const user = await User.findById(idUser);
         if (!user) {
             return res.status(400).json({
-                msg: "El usuario no existe"
+                msg: "The user does not exists"
             })
         }
         if (!user.state) {
             return res.status(400).json({
-                msg: "El usuario ha sido eliminado"
+                msg: "The user has been deleted"
             })
         }
         next();
     } catch (e) {
         res.status(500).json({
-            msg: "Ingrese un ID de usuario valido de Mongo"
+            msg: "Enter a valid Mongo user ID"
         })
     }
 }
@@ -193,13 +193,13 @@ export const verifyIdInvoice = async (req, res, next) => {
         const invoice = await Invoice.findById(idInvoice);
         if (!invoice) {
             return res.status(400).json({
-                msg: "La factura no existe"
+                msg: "The invoice does not exist"
             })
         }
         next()
     } catch (e) {
         res.status(500).json({
-            msg: "Verifique que el ID de la factura sea valida de Mongo"
+            msg: "Verify that the invoice ID is valid from Mongo"
         })
     }
 
@@ -216,7 +216,7 @@ export const verifyQuantityStock = async (req, res, next) => {
                 let itemTotalProduct = quantity + p.quantity;
                 if (itemTotalProduct > product.stock) {
                     return res.status(400).json({
-                        msg: "La cantidad agregada y la que tiene en el carrito es mayor al stock"
+                        msg: "The quantity added and the quantity in the cart is greater than the stock"
                     });
                 }
             }
@@ -235,7 +235,7 @@ export const verifyQuantityStockInvoice = async (req, res, next) => {
             let itemTotalProduct = quantity + p.quantity;
             if (itemTotalProduct > product.stock) {
                 return res.status(400).json({
-                    msg: "La nueva cantidad es mayor al stock del producto"
+                    msg: "The new quantity is greater than the stock of the product"
                 });
             }
         }
@@ -251,13 +251,13 @@ export const verifyIdProductInvoice = async (req, res, next) => {
     for (let p of invoice.totalProducts) {
         if (p.idProduct != idProduct) {
             notExistId++;
-        }else{
+        } else {
             next();
         }
     }
     if (notExistId == invoice.totalProducts.length) {
         return res.status(400).json({
-            msg: "El ID del producto no existe en la factura"
+            msg: "The product ID does not exist on the invoice"
         })
     }
 }

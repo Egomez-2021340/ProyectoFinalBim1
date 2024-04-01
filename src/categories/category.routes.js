@@ -14,9 +14,9 @@ const router = Router();
 
 router.post('/',[validateJWT,
     verifyRole('ADMIN_ROLE'),
-    check('name','El nombre de la categoria es obligatorio').not().isEmpty(),
+    check('name','Category name is required').not().isEmpty(),
     check('name').custom(verifyNameCategory),
-    check('description',"La descripcion de la categoria es obligatoria").not().isEmpty(),
+    check('description',"The category description is necesary").not().isEmpty(),
     validateFields
 ],categoryPost)
 
@@ -26,9 +26,9 @@ verifyRole('ADMIN_ROLE','CLIENT_ROLE')],categoryGet)
 router.put('/:idCategory',[validateJWT,
     verifyRole('ADMIN_ROLE'),
     validateIdCategory,
-    check('name','El nombre de la categoria es obligatorio').not().isEmpty(),
+    check('name','The name of the category is necesary').not().isEmpty(),
     check('name').custom(verifyNameCategory),
-    check('description',"La descripcion de la categoria es obligatoria").not().isEmpty(),
+    check('description',"Category description is necessary").not().isEmpty(),
     validateFields
 ],categoryPut)
 

@@ -22,7 +22,7 @@ export const invoicePost = async (req = request, res = response) => {
     await ShoppingCart.findByIdAndUpdate(shoppingCart._id, { listProducts: [] });
     invoice.save();
     res.status(200).json({
-        msg: "!!Gracias por su compra, lo esperamos!!",
+        msg: "Thanks for your purchase!",
         invoice
     })
 }
@@ -75,7 +75,7 @@ export const invoicePut = async (req, res) => {
     }
     if (!pay && sumTotal > invoice.pay) {
         return res.status(400).json({
-            msg: `Debes pagar Q${sumTotal - invoice.pay} más`
+            msg: `You have to pay Q${sumTotal - invoice.pay} more`
         });
     }
     if (pay) {
@@ -92,7 +92,7 @@ export const invoicePut = async (req, res) => {
     });
     const invoiceSee = await Invoice.findById(idInvoice)
     res.status(200).json({
-        msg: "Se ha actualizado la factura",
+        msg: "The invoice has been updated",
         invoiceSee
     })
 }

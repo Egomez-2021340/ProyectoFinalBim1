@@ -3,11 +3,11 @@ import mongoose, { model } from 'mongoose';
 const CategorySchema = mongoose.Schema({
     name:{
         type:String,
-        required:[true,'Es obligatorio un nombre de categoria']
+        required:[true,'There must be a category name']
     },
     description:{
         type:String,
-        required:[true, 'Es obligatorio una descripcion de categoria']
+        required:[true, 'There must be a description']
     },
     state:{
         type:Boolean,

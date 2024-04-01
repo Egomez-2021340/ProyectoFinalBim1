@@ -105,7 +105,7 @@ export const productSC= async(req=request,res=response)=>{
             category=await Category.findById(searchPS);
         } catch (e) {
             res.status(500).json({
-                msg:"Error del servidor"
+                msg:"Server Error"
             })
         }
     }
