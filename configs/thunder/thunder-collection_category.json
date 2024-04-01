@@ -1,0 +1,95 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "category",
+    "dateExported": "2024-04-01T17:20:49.697Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d550f42d-f5e2-4c4d-a3f3-e57e3ecaa745",
+            "colId": "14632d4b-0b4c-4047-ac89-bf794d14a692",
+            "containerId": "",
+            "name": "categoryPost",
+            "url": "http://localhost:3000/ProjectBimestral/v1/category",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-23T03:32:46.954Z",
+            "modified": "2024-03-23T05:08:44.169Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzMzOWRmNDFmYmZjNzIzMjRlNDciLCJpYXQiOjE3MTExNjQ3NTIsImV4cCI6MTcxMTIwMDc1Mn0.7wDvlWDfEba4EUdlM_RVwlCz5m8k5bHLeuzgl6gp61Q"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Artesanias\",\n  \"description\":\"Son los productos que son creadas ya sea a mano o por maquina\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "bbef0334-bffb-4603-ba94-4386b693ad6c",
+            "colId": "14632d4b-0b4c-4047-ac89-bf794d14a692",
+            "containerId": "",
+            "name": "categoryGet",
+            "url": "http://localhost:3000/ProjectBimestral/v1/category",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-23T04:25:29.562Z",
+            "modified": "2024-03-26T01:41:45.544Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzM3MmRmNDFmYmZjNzIzMjRlNGMiLCJpYXQiOjE3MTE0MTcyOTksImV4cCI6MTcxMTQ1MzI5OX0.xlLTGcW23SWxQpAaaOxZ0bRv-9PnoHElKTPtLrcvdic"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0a468512-32c8-40e0-af5b-c9f10d3d5f4b",
+            "colId": "14632d4b-0b4c-4047-ac89-bf794d14a692",
+            "containerId": "",
+            "name": "categoryPut",
+            "url": "http://localhost:3000/ProjectBimestral/v1/category/65fe63dc559ccbae33f94f03",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-03-23T04:59:14.516Z",
+            "modified": "2024-03-23T05:09:20.254Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzMzOWRmNDFmYmZjNzIzMjRlNDciLCJpYXQiOjE3MTExNjQ3NTIsImV4cCI6MTcxMTIwMDc1Mn0.7wDvlWDfEba4EUdlM_RVwlCz5m8k5bHLeuzgl6gp61Q"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Ropa\",\n  \"description\":\"Encuentre accesorios para vestir de una variedad de estilos\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5b0d433b-1a98-453c-b999-e5bece1ccc90",
+            "colId": "14632d4b-0b4c-4047-ac89-bf794d14a692",
+            "containerId": "",
+            "name": "categoryDelete",
+            "url": "http://localhost:3000/ProjectBimestral/v1/category/65fe63dc559ccbae33f94f03",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-03-23T05:11:03.395Z",
+            "modified": "2024-03-23T05:38:50.242Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzMzOWRmNDFmYmZjNzIzMjRlNDciLCJpYXQiOjE3MTExNjQ3NTIsImV4cCI6MTcxMTIwMDc1Mn0.7wDvlWDfEba4EUdlM_RVwlCz5m8k5bHLeuzgl6gp61Q"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

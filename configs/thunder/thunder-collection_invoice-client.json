@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "invoice-client",
+    "dateExported": "2024-04-01T17:21:06.149Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c900d271-0ecf-47d5-8763-f1a51ec6d244",
+            "colId": "fa75e1f9-cac6-4ffc-b514-4be1256e1653",
+            "containerId": "",
+            "name": "invoiceGetLoggedUser",
+            "url": "http://localhost:3000/ProjectBimestral/v1/invoice/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-26T07:10:20.098Z",
+            "modified": "2024-03-26T07:10:50.421Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzM3MmRmNDFmYmZjNzIzMjRlNGMiLCJpYXQiOjE3MTE0MzcwNDMsImV4cCI6MTcxMTQ3MzA0M30.9Qkx495PdbgVQZ3g191N6--1Dm1MJtQO2df9xYZZWl0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

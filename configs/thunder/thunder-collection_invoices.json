@@ -1,0 +1,95 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "invoices",
+    "dateExported": "2024-04-01T17:20:58.536Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7c00fe51-2cac-4af5-a0e9-bc67503b5b66",
+            "colId": "794e856f-3a93-45cf-a9c5-dc82c20e6047",
+            "containerId": "",
+            "name": "invoicePost",
+            "url": "http://localhost:3000/ProjectBimestral/v1/invoice",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-26T04:56:48.411Z",
+            "modified": "2024-03-26T06:28:37.600Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzM3MmRmNDFmYmZjNzIzMjRlNGMiLCJpYXQiOjE3MTE0MTcyOTksImV4cCI6MTcxMTQ1MzI5OX0.xlLTGcW23SWxQpAaaOxZ0bRv-9PnoHElKTPtLrcvdic"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"pay\":100\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e203c983-93e8-40f7-8da9-0d13deb8a4ad",
+            "colId": "794e856f-3a93-45cf-a9c5-dc82c20e6047",
+            "containerId": "",
+            "name": "invoiceGetUser",
+            "url": "http://localhost:3000/ProjectBimestral/v1/invoice/user/65fa3372df41fbfc72324e4c",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-26T06:47:14.664Z",
+            "modified": "2024-03-26T06:54:02.970Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzMzOWRmNDFmYmZjNzIzMjRlNDciLCJpYXQiOjE3MTE0MjQ2OTcsImV4cCI6MTcxMTQ2MDY5N30.zAnqvwksGiPFLQxP_2-X-mUS6KOcKp9HrG_yukZOma0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8f8f4683-aa36-43e4-bca8-391a1171cf85",
+            "colId": "794e856f-3a93-45cf-a9c5-dc82c20e6047",
+            "containerId": "",
+            "name": "invoiceGetById",
+            "url": "http://localhost:3000/ProjectBimestral/v1/invoice/66026fbdabcb2ee2b0476176",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-26T06:54:11.436Z",
+            "modified": "2024-03-26T07:03:30.359Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzMzOWRmNDFmYmZjNzIzMjRlNDciLCJpYXQiOjE3MTE0MjQ2OTcsImV4cCI6MTcxMTQ2MDY5N30.zAnqvwksGiPFLQxP_2-X-mUS6KOcKp9HrG_yukZOma0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4eba66b7-8242-43a6-b66d-f093e1f2b721",
+            "colId": "794e856f-3a93-45cf-a9c5-dc82c20e6047",
+            "containerId": "",
+            "name": "invoicePut",
+            "url": "http://localhost:3000/ProjectBimestral/v1/invoice/66026b3e4aa34df0632fce28",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-03-26T23:01:53.188Z",
+            "modified": "2024-03-27T01:54:12.353Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzMzOWRmNDFmYmZjNzIzMjRlNDciLCJpYXQiOjE3MTE0OTU1MTEsImV4cCI6MTcxMTUzMTUxMX0.K4YU3El5tBDTi_94XAaYEHgET9MnWR1duHNQo35QgkA"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"idProduct\":\"65fbb93572b4ed7c3df67bf2\",\n  \"quantity\":12,\"pay\":60\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

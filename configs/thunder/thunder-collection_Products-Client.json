@@ -1,0 +1,47 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Products-Client",
+    "dateExported": "2024-04-01T17:20:44.941Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "bdca8140-f702-4e0c-a1a6-ff0fe05ecab1",
+            "colId": "bc6cb33e-808b-4d79-b0b7-fcf05d457e8d",
+            "containerId": "",
+            "name": "productsSN",
+            "url": "http://localhost:3000/ProjectBimestral/v1/product/search/N",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-21T05:10:34.879Z",
+            "modified": "2024-03-25T23:03:03.521Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzM3MmRmNDFmYmZjNzIzMjRlNGMiLCJpYXQiOjE3MTE0MDc3NjgsImV4cCI6MTcxMTQ0Mzc2OH0.OvNW7USvcrI54-oSICWvHxQ3eqIj-fAdQZE4DwaJL-Q"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fc87b055-1492-469c-b4c6-61c8e47285fb",
+            "colId": "bc6cb33e-808b-4d79-b0b7-fcf05d457e8d",
+            "containerId": "",
+            "name": "productSC",
+            "url": "http://localhost:3000/ProjectBimestral/v1/product/search/category/65fe63dc559ccbae33f94f03",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-25T23:32:07.699Z",
+            "modified": "2024-03-26T01:37:00.470Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzM3MmRmNDFmYmZjNzIzMjRlNGMiLCJpYXQiOjE3MTE0MDc3NjgsImV4cCI6MTcxMTQ0Mzc2OH0.OvNW7USvcrI54-oSICWvHxQ3eqIj-fAdQZE4DwaJL-Q"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

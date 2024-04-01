@@ -1,0 +1,97 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Users",
+    "dateExported": "2024-04-01T17:20:23.148Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d58b06a6-9dbb-4943-a8eb-3729a5b63027",
+            "colId": "f1434d10-2184-46bf-904a-4ce64cbfe821",
+            "containerId": "",
+            "name": "userPost",
+            "url": "http://localhost:3000/ProjectBimestral/v1/user",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-20T00:38:30.925Z",
+            "modified": "2024-03-20T00:53:06.826Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user\":\"estebanPro\",\n  \"name\":\"Estebam Gomez\",\n  \"email\":\"egomez@gmail.com\",\n  \"password\":\"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7d906073-c4fd-4470-944f-6682b8831599",
+            "colId": "f1434d10-2184-46bf-904a-4ce64cbfe821",
+            "containerId": "",
+            "name": "login",
+            "url": "http://localhost:3000/ProjectBimestral/v1/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-20T01:25:11.114Z",
+            "modified": "2024-03-26T23:25:11.889Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"pmedina@gmail.com\",\n  \"password\":\"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c1310188-a05d-43c6-94ee-95a1e71e716a",
+            "colId": "f1434d10-2184-46bf-904a-4ce64cbfe821",
+            "containerId": "",
+            "name": "userPut",
+            "url": "http://localhost:3000/ProjectBimestral/v1/user",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-20T02:08:40.565Z",
+            "modified": "2024-03-20T02:54:34.513Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzMzOWRmNDFmYmZjNzIzMjRlNDciLCJpYXQiOjE3MTA5MDEyNDUsImV4cCI6MTcxMDkzNzI0NX0.pQGmvVdb5Ar6YfOZ9lE032FTCDzFao2HFFBWiGT4mrU"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user\":\"pedroPro\",\n  \"password\":\"1234\",\n  \"role\":\"ADMIN_ROLE\"\n}",
+                "form": []
+            },
+            "reqType": "put",
+            "tests": []
+        },
+        {
+            "_id": "5c2040d9-128b-4dd6-a1e3-241fba7b4449",
+            "colId": "f1434d10-2184-46bf-904a-4ce64cbfe821",
+            "containerId": "",
+            "name": "userDelete",
+            "url": "http://localhost:3000/ProjectBimestral/v1/user",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-20T02:55:19.501Z",
+            "modified": "2024-03-21T05:18:40.186Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWZhMzM3MmRmNDFmYmZjNzIzMjRlNGMiLCJpYXQiOjE3MTA5OTc0OTgsImV4cCI6MTcxMTAzMzQ5OH0.ZDEj8FiM6gPdF8DOIqhxUjFdnrbO2Zjtq8Dds98lJ6s"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\":\"1234\",\n  \"passwordConfirm\":\"1234\"\n}",
+                "form": []
+            },
+            "reqType": "del",
+            "tests": []
+        }
+    ]
+}
